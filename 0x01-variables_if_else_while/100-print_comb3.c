@@ -2,14 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 /**
-* main - print combinations of two digits
+* main - print combinations of two digis
 *
 * Return: 0
 */
 int main(void)
 {
 int d, p;
-
 for (d = '0'; d < '9'; d++)
 {
 for (p = d + 1; p <= '9'; p++)
@@ -20,8 +19,10 @@ if (p != d)
 	putchar(p);
 if (d == '8' && p == '9')
 	continue;
+{
 	putchar(',');
 	putchar(' ');
+}
 }
 }
 }
