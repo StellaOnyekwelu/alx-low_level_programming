@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 /**
-* main - print combinations of two two-digit numbers
+* main - print combinations of two digits
 *
 * Return: 0
 */
@@ -20,7 +20,7 @@ for (q = p + 1; q <= 99; q++)
 	putchar((q % 10) + '0');
 if (p == 98 && q == 99)
 	continue;
-{	
+{
 	putchar(',');
 	putchar(' ');
 }
