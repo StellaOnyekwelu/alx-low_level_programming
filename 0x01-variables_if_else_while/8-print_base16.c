@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 /**
-* main - print all the numbers of base 16
+* main - print all numbers in base 16 in lowercase
 *
 * Return: 0
 */
@@ -11,7 +11,7 @@ int main(void)
 int d;
 char ch;
 
-for (d = '0', d <= '9'; d++)
+for (d = '0'; d <= '9'; d++)
 {
 	putchar(d);
 }
