@@ -1,11 +1,11 @@
 #include "main.h"
 /**
-* print_sign - prints sign of number
-* @n: positive, zero or negative
+* print_sign - checks the sign of numbers
+* @n: positve, zero or negative
 * Return: 1 if positive, 0 if negative, -1 if negative
 */
 
-int print_sign(int n)
+int print_sign(int c)
 {
 if (n > 0)
 {
@@ -14,7 +14,7 @@ if (n > 0)
 }
 else if (n < 0)
 {
-	_putchar('-);
+	_putchar('-');
 	return (-1);
 }
 else
