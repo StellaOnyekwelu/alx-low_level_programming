@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 /**
-* print_to_98 - prints integers between number and 98
+* print_to_98 - prints integers between numbers and 98
 * @n: number to count
 *
 * Return: void
@@ -12,10 +12,10 @@ if (n > 98)
 {
 while (n >= 98)
 {
-	printf("%d", n);
+	printf(" %d ", n);
 if (n != 98)
 {
-	printf(",");
+	printf(" , ");
 }
 n--;
 }
@@ -24,10 +24,10 @@ else
 {
 while (n <= 98)
 {
-	printf("%d", n);
+	printf(" %d ", n);
 if (n != 98)
 {
-	printf(",");
+	printf(" , ");
 }
 n++;
 }
