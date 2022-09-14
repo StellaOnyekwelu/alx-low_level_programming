@@ -1,12 +1,13 @@
 #include "main.h"
 /**
-* _isalpha - checks whether a character is an alphabet or not
+* _isalpha - checks if the character is an alphabet or not
 * @c: ascii value
-* Return: 1 if it is a lowercase or 0 otherwise
+* Return: 1 if lowercase or 0
 */
-int _isalpha(int c)
+
+int -isalpha(int c)
 {
-if ((c >= 97 && c <= 123)) || (c >= 65 && c <= 91)
+if((c >= 97 && c <=123) || (c >= 65 && c <= 91))
 {
 return (1);
 }
