@@ -28,9 +28,6 @@ printf("%d" , n);
 if (n != 98)
 {
 printf(" , ");
-if (n != 98)
-{
-printf(",");
 }
 n++;
 }
