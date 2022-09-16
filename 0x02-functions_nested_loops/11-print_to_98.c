@@ -1,36 +1,25 @@
-#include "main.h"
 #include <stdio.h>
+
 /**
- * print_to_98 - prints all the integers between the number given and 98
- * @n: number to count from
+ * main - prints the n times table
  *
- * Return: void
+ * Return: 0 if successful
  */
-void print_to_98(int n)
+int main(void)
 {
-if (n > 98)
-{
-while (n >= 98)
-{
-printf("%d" , n);
-if (n != 98)
-{
-printf(" , ");
-}
-n--;
-}
-}
-else
-{
-while (n <= 98)
-{
-printf("%d" , n);
-if (n != 98)
-{
-printf(" , ");
-}
-n++;
-}
-}
-printf("\n");
+	int limit = 1024;
+	int i;
+	int sum = 0;
+
+	for (i = 1; i < limit; i++)
+	{
+		if (i % 3 == 0 || i % 5 == 0)
+		{
+			sum += i;
+		}
+	}
+
+	printf("%d\n", sum);
+
+	return (0);
 }
