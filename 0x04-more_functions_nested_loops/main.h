@@ -1,5 +1,10 @@
-#ifndef HEADER_FILE
-#define HEADER_FILE
+Â#ifndef MAIN_H
+#define MAIN_H
+/**
+* main - header file for prototypes
+* void prototype (void)
+* int prototype (int)
+*/
 
 int _isupper(int c);
 int _isdigit(int c);
@@ -13,4 +18,4 @@ void print_square(int size);
 void print_triangle(int size);
 void print_number(int n);
 
-#endif /* main.h */
+#endif /* MAIN_H */
