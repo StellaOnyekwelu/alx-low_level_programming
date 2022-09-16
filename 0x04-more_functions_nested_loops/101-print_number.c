@@ -1,60 +1,52 @@
 #include "main.h"
-
 /**
- * print_number - prints a number using _putchar
- * @n: number to print
- *
- * Return: void
+ * print_number - prints an integer
+ * @n: the integer to print
  */
 void print_number(int n)
 {
-	unsigned int un = 0;
+	int i;
+	int max;
+	int minVal = n + 1 == -2147483640 - 7 ? -1 : 0;
+	int rem = n < 0 ? 0 - n + minVal : n;
+
+	max = 1;
+	max *= 100000;
+	max *= 100000;
 
 	if (n < 0)
+		_putchar('-');
+
+	for (i = 9; i >= 0; i--)
 	{
-		if (n < 1000000000)
-			n = -n;
-		un = n;
-		_putchar(45);
-		num_to_char(n);
-	}
-	else
-	{
-		un = n;
-		num_to_char(un);
+		int power = b10_pow(i);
+
+		if (rem > power - 1 && !(i == 0 && minVal < 0))
+			_putchar((int)((rem / power) % 10) + '0');
+		else if (i == 0 && minVal >= 0)
+			_putchar((int)((rem / power) % 10) + '0');
+		if (i == 0 && minVal < 0)
+			_putchar('8');
 	}
 }
 
 /**
- * num_to_char - transforms a number with 1 or more digits into a char
- * @n: number to print
+ * b10_pow - Computes the power of 10 to the given index
+ * @idx: The index to which 10 is raised to.
  *
- * Return: void
+ * Return: A power of 10
  */
-void num_to_char(unsigned int n)
+int b10_pow(int idx)
 {
-	unsigned int d = 10;
+	int i;
+	int result = 1;
 
-	if (n < d)
+	if (idx < 0)
+		return (0);
+
+	for (i = 0; i < idx; i++)
 	{
-		_putchar('0' + n);
+		result *= 10;
 	}
-	else
-	{
-		while (n >= d)
-		{
-			d *= 10;
-			if (d == 1000000000)
-				break;
-		}
-		if (!(d == 1000000000) || n == 123456789)
-			d /= 10;
-		_putchar('0' + n / d);
-		while (d != 10)
-		{
-			d /= 10;
-			_putchar('0' + (n / d) % 10);
-		}
-		_putchar('0' + n % 10);
-	}
+	return (result);
 }
