@@ -3,9 +3,13 @@
 /**
 * _putchar - writes a program
 *
+* @c: character to print
+*
 * Return: 1
-* /
-Int _putchar(char c)
+* on error: -1 is returned
+*/
+
+int _putchar(char c)
 {
-Return(write(1, &c, 1)
+	return (write(1, &c, 1));
 }
