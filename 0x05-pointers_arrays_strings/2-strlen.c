@@ -1,41 +1,46 @@
-#include "main.h"
-
 /**
- * _atoi - converts the first set of digits in a string to an integer,
- * taking into account the sign of the number
- * @s: string to be converted
- * Return: int containing the converted number
+ * _atoi - Converts a string to an integer
+ * @s: The string to be converted
+ * Return: The first integer in the string
  */
 int _atoi(char *s)
 {
-	int index, ind2;
-	unsigned int res;
-	int sign = 1;
-	char now;
+	short sign = 1;
+	double result = 0;
+	int len, digits_seen_count, i, pass, positive, old_sign;
 
-	index = 0;
-	res = 0;
-	while (*(s + index) != '\0')
+	len = i = digits_seen_count = pass = old_sign = 0;
+	while (pass <= 1)
 	{
-		now = *(s + index);
-		if (now == '-')
+		positive = old_sign != 0 ? old_sign == *(s + len) : *(s + len) == '+';
+		if (*(s + len) == '\0')
 		{
-			sign *= -1;
+			pass++;
+			len = 0;
+			continue;
 		}
-		if (now >= '0' && now <= '9')
+		else if (*(s + len) >= '0' && *(s + len) <= '9')
 		{
-			ind2 = index;
-			while (*(s + ind2) > 47 && *(s + ind2) < 58)
+			if (pass == 0)
+				digits_seen_count++;
+			else
+				result += (*(s + len) - '0') * b10_pow(digits_seen_count - i++ - 1);
+		}
+		else
+		{
+			if (pass == 0 && digits_seen_count > 0)
 			{
-				res = (res * 10) + *(s + ind2) - '0';
-				ind2++;
+				pass++;
+				len -= digits_seen_count;
+				continue;
 			}
-			break;
+			if ((*(s + len) == '+' || *(s + len) == '-') && digits_seen_count == 0)
+			{
+				sign = positive ? 1 : 0 - 1;
+				old_sign = positive ? '+' : '-';
+			}
 		}
-		index++;
+		len++;
 	}
-	if (sign < 0)
-		res *= sign;
-	return (res);
-
+	return (result * sign);
 }
