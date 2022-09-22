@@ -2,18 +2,25 @@
 #include "main.h"
 
 /**
- * _strcmp - function to copy string
+ * reverse_array - reverses the content of an array of integers
  *
- * @s1: first string to compare
- * @s2: second string to compare
- * Return: int
+ * @a: array
+ * @n: number of array elements
+ * Return: void
  */
-int _strcmp(char *s1, char *s2)
+void reverse_array(int *a, int n)
 {
-	while (*s1 && *s1 == *s2)
+	int i, temp, cond;
+
+	if (n % 2 == 0)
+		cond = n;
+	else
+		cond = n - 1;
+	for (i = 0; i < cond / 2; i++)
 	{
-		++s1;
-		++s2;
+		temp = a[i];
+		a[i] = a[n - 1];
+		a[n - 1] = temp;
+		n--;
 	}
-	return ((int)(unsigned char)(*s1) - (int)(unsigned char)(*s2));
 }
