@@ -1,23 +1,37 @@
 #include "main.h"
-
 /**
- * _strpbrk - locates first occurence of any bytes from accept in s
+ * _strspn - Gets the length of a prefix substring
+ * @s: The source string
+ * @accept: The prefix substring
  *
- * @s: string to work on
- * @accept: pattern to match against
- * Return: pointer to the first match
+ * Return: The number of bytes in the initial segment of s
+ * which consist only of bytes from accept
  */
-char *_strpbrk(char *s, char *accept)
+unsigned int _strspn(char *s, char *accept)
 {
-	int i, j;
+	unsigned int i, j;
+	char stop, match_found;
 
-	for (i = 0; s[i] != '\0'; i++)
+	match_found = 0;
+	for (i = 0; *(s + i) != '\0';)
 	{
-		for (j = 0; accept[j] != '\0'; j++)
+		for (j = 0; *(accept + j) != '\0'; j++)
 		{
-			if (s[i] == accept[j])
-				return (s + i);
+			if (*(s + i) == *(accept + j))
+			{
+				stop = 0;
+				match_found = 1;
+				break;
+			}
+			else
+			{
+				stop = 1;
+			}
 		}
+		if (!stop)
+			i++;
+		else
+			break;
 	}
-	return (NULL);
+	return (match_found ? i : 0);
 }
