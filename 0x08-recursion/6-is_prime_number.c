@@ -1,37 +1,28 @@
-
 #include "main.h"
-
 /**
- * is_prime_number - returns 1 if the input integer is a prime number,
- * otherwise returns 0
- *
- * @n: number
- * Return: int
+ * helper - does it for me
+ * @i: helper int
+ * @n: integer I'm testing
+ * Return: value
+ */
+int helper(int i, int n)
+{
+	if (n % i == 0 && n != i)
+		return (0);
+	if (n % i != 0 && i < n)
+		return (helper(i + 1, n));
+	return (1);
+}
+/**
+ * is_prime_number - is prime or not
+ * @n: integer to compare
+ * Return: boolean
  */
 int is_prime_number(int n)
 {
 	int i = 2;
 
-	if (n <= 2)
-		return (n == 2 ? 1 : 0);
-	if (n % 2 == 0)
+	if (n < 2)
 		return (0);
-	return (is_prime(n, i));
-}
-
-/**
- * is_prime - returns 1 if the input integer is a prime number,
- * otherwise returns 0
- *
- * @n: number
- * @i: dividend
- * Return: int
- */
-int is_prime(int n, int i)
-{
-	if (n != i && n % i == 0)
-		return (0);
-	else if (n == i)
-		return (1);
-	return (is_prime(n, i + 1));
+	return (helper(i, n));
 }
