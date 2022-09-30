@@ -1,17 +1,19 @@
 #include "main.h"
-#include "2-strlen.c"
+
 /**
- * _puts - puts a string
+ * _puts - print a given string to screen
  *
- * @str: string to print
+ * @str: passed pointer argument for string
+ * Return: void
  */
 void _puts(char *str)
 {
-	int i;
+	int len = 0;
 
-	for (i = 0; *(str + i) != '\0'; i++)
+	while (*(str + len) != '\0')
 	{
-		_putchar(*(str + i));
+		_putchar(*(str + len));
+		len++;
 	}
 	_putchar('\n');
 }
